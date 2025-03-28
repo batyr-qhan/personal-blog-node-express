@@ -14,6 +14,11 @@ app.engine(
     defaultLayout: "main",
     layoutsDir: path.join(__dirname, "views/layouts"),
     partialsDir: path.join(__dirname, "views/partials"),
+    helpers: {
+      eq: function (a, b) {
+        return a === b;
+      },
+    },
   })
 );
 
@@ -27,12 +32,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Define a route
 app.get("/", (req, res) => {
-  res.render("home", { title: "Welcome to Handlebars" });
+  res.render("home", { title: "Welcome to Handlebars", currentPath: req.path });
 });
 
 app.get("/about", (req, res) => {
-    res.render("about", { title: "About Us" });
-    });
+  res.render("about", { title: "About Us" });
+});
 
 // Start the server
 const PORT = 3000;

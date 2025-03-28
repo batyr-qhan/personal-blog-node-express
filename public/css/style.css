@@ -63,6 +63,13 @@ main {
     width: 600px;
 }
 
+.bg-image {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
 .wrapper {
     max-width: 960px;
     margin: 0 auto;
@@ -102,7 +109,7 @@ main {
 }
 
 .header__links ul {
-    margin-right: 10px;
+    margin-right: 16px;
 }
 
 .header__theme-switcher {
@@ -135,11 +142,21 @@ nav ul li a {
     color: black;
     /* padding: 5px 10px; */
     border-radius: 5px;
+    position: relative;
 }
 
-nav ul li a.active {
-    background-color: black;
-    color: white;
+nav ul li a.active::after {
+    /* background-color: black;
+    color: white; */
+
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-blue-500);
+    /* bottom: 10px; */
+    margin-top: -2px;
 }
 
 .home {
@@ -162,7 +179,7 @@ nav ul li a.active {
     height: 8px;
     background-color: var(--color-blue-500);
     bottom: -10px;
-    margin-top: -12px
+    margin-top: -12px;
 }
 
 .home__intro * {
